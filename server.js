@@ -2,7 +2,9 @@
 
 const express = require('express');
 const bodyParser = require('body-parser');
-
+var fs = require('fs');
+var request = require('request');
+var cheerio = require('cheerio');
 
 const restServices = express();
 
@@ -12,9 +14,7 @@ restServices.use(bodyParser.urlencoded({
 
 restServices.use(bodyParser.json());
 
-restServices.post('/echo', function(req , res ){
-
-	var url = 'http://www.imdb.com/movies-in-theaters/?ref_=nv_mv_inth_1';
+var url = 'http://www.imdb.com/movies-in-theaters/?ref_=nv_mv_inth_1';
 	
 	request(url, function(error, response, html){
 	if(!error){
@@ -38,10 +38,13 @@ restServices.post('/echo', function(req , res ){
 	tit.push(title);
 	})
 
-        }
+        }console.log(tit[n]);
     })	
 
-	var speech =  tit[n];
+
+restServices.post('/echo', function(req , res ){
+
+	var speech =  JSON.stringify(tit[n]);
 	return res.json({
 		speech: speech,
 		displayText: speech,
