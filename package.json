@@ -1,0 +1,11 @@
+{
+  "name": "movie",
+  "description": "Used to suggest a movie",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    
+  }
+}
