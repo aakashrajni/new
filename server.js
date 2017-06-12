@@ -43,4 +43,8 @@ restServices.post('/echo', function(req , res ){
 
 restServices.listen((process.env.PORT || 5000), function() {
 	console.log("Server up and listening");
+	var http = require("http");
+setInterval(function() {
+    http.get("http://<your app name>.herokuapp.com");
+}, 300000);
 });
