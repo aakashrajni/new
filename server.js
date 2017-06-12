@@ -33,7 +33,7 @@ restServices.post('/echo', function(req , res ){
 	console.log(tit[n-10]);
     })	
 
-	var speech =  "Wonder Woman";
+	var speech =  tit[n-10];
 	return res.json({
 		speech: speech,
 		displayText: speech,
