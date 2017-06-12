@@ -14,7 +14,7 @@ restServices.use(bodyParser.urlencoded({
 var title;
 var tit = [];
 var n;
-
+var arr = [10,9,8,7,6];
 restServices.use(bodyParser.json());
 restServices.post('/echo', function(req , res ){
 	var url = 'http://www.imdb.com/movies-in-theaters/?ref_=nv_mv_inth_1';
@@ -32,8 +32,8 @@ restServices.post('/echo', function(req , res ){
         }
 	console.log(tit[n-10]);
     })	
-
-	var speech =  tit[n-10];
+	var rand = arr[Math.floor(Math.random() * arr.length)];
+	var speech =  tit[n-rand];
 	return res.json({
 		speech: speech,
 		displayText: speech,
@@ -45,6 +45,6 @@ restServices.listen((process.env.PORT || 5000), function() {
 	console.log("Server up and listening");
 	var http = require("http");
 setInterval(function() {
-    http.get("http://<your app name>.herokuapp.com");
+    http.get("http://serene-forest-36255.herokuapp.com");
 }, 300000);
 });
