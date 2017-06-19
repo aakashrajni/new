@@ -18,7 +18,9 @@ var arr = [10,9,8,7,6];
 restServices.use(bodyParser.json());
 restServices.post('/echo', function(req , res ){
 	var url = 'http://www.imdb.com/movies-in-theaters/?ref_=nv_mv_inth_1';
-	console.log(req.body.parameters);
+	console.log(req.body);		
+	var jsonobj = JSON.parse(req.body);
+	console.log(jsonobj);
 	request(url, function(error, response, html){
 	if(!error){
 	var $ = cheerio.load(html);
