@@ -20,7 +20,9 @@ restServices.post('/echo', function(req , res ){
 	var url = 'http://www.imdb.com/movies-in-theaters/?ref_=nv_mv_inth_1';
 	console.log(req.body);		
 	var jsonobj = JSON.parse(req.body);
-	console.log(jsonobj);
+	console.log(jsonobj.result);
+	console.log(jsonobj.result.parameters);
+	console.log(jsonobj.movietell);
 	request(url, function(error, response, html){
 	if(!error){
 	var $ = cheerio.load(html);
