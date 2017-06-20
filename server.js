@@ -20,7 +20,7 @@ restServices.use(bodyParser.json());
 
 restServices.post('/echo', function(req , res ){
 
-	if(req.body.result.parameters.movietell == best)
+	if(req.body.result.parameters.movietell == "best")
 	{
 	var url = 'http://www.imdb.com/movies-in-theaters/?ref_=nv_mv_inth_1';	
 	request(url, function(error, response, html){
@@ -44,7 +44,7 @@ restServices.post('/echo', function(req , res ){
 		source: 'webhook-echo-sample'
 	});
 	}
-	if(req.body.result.parameters.movietell == tamil)
+	if(req.body.result.parameters.movietell == "tamil")
 	{
 	var url = 'https://www.filmipop.com/chennai/movie/moviesearch?sp=bycinema.PVR%20-%20Ampa%20Sky%20Walk%20Mall,%20Aminjikerai__bylanguage.Tamil__byrunning.1';
 	request(url, function(error, response, html){
