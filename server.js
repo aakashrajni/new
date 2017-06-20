@@ -18,17 +18,6 @@ var arrt = [1,2,3,4,5];
 var arr = [10,9,8,7,6];
 restServices.use(bodyParser.json());
 
-	var url = 'https://www.filmipop.com/chennai/movie/moviesearch?sp=bycinema.PVR%20-%20Ampa%20Sky%20Walk%20Mall,%20Aminjikerai__bylanguage.Tamil__byrunning.1';
-	request(url, function(error, response, html){
-	if(!error){
-	var $ = cheerio.load(html);
-	$('.movie-title').filter(function(){
-	var data = $(this);
-	ttitle = data.children().first().text();
-	ttit.push(ttitle);
-	});}
-	});
-
 restServices.post('/echo', function(req , res ){
 
 	if(req.body.result.parameters.movietell == best)
