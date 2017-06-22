@@ -64,12 +64,27 @@ restServices.post('/echo', function(req , res ){
 		source: 'webhook-echo-sample'
 	});
 	}
+	if(req.body.simple == "work")
+	console.log("Alive");
 });
 
 restServices.listen((process.env.PORT || 5000), function() {
 	console.log("Server up and listening");
 	var http = require("http");
 setInterval(function() {
-    http.get("http://serene-forest-36255.herokuapp.com");
-}, 300000);
+	var options = {
+    url: 'http://serene-forest-36255.herokuapp.com/echo',
+    method: 'POST',
+    headers: "",
+    form: { "simple": "work", }
+}
+
+// Start the request
+request(options, function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+        // Print out the response body
+        console.log(body)
+    }
+})    
+}, 3000);
 });
