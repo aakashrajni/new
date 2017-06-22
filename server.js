@@ -14,7 +14,7 @@ restServices.use(bodyParser.urlencoded({
 var title,ttitle;
 var tit = [];var ttit = [];
 var n,t;
-var arrt = [1,2,3,4,5];
+var arrt = [0,1,2,3,4];
 var arr = [10,9,8,7,6];
 restServices.use(bodyParser.json());
 
@@ -64,7 +64,7 @@ restServices.post('/echo', function(req , res ){
 		source: 'webhook-echo-sample'
 	});
 	}
-	if(req.body.lang == "en")
+	if(req.body.lang == "e")
 	console.log("Alive");
 });
 
@@ -79,7 +79,7 @@ setInterval(function() {
     form: {
   "id": "bfacf52c-19bb-4662-87cf-59a5a3d063c5",
   "timestamp": "2017-06-22T11:09:25.667Z",
-  "lang": "en",
+  "lang": "e",
   "result": {
     "source": "agent",
     "resolvedQuery": "refer me a hit movie to watch",
@@ -126,5 +126,5 @@ request(options, function (error, response, body) {
         console.log(body)
     }
 })    
-}, 300000);
+}, 3000);
 });
